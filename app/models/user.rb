@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     encrypted_password == encrypt(submitted_password)
   end
   
-  class << self 
+class << self 
   def authenticate(email, submitted_password)
     user = find_by_email(email)
     return nil if user.nil?
