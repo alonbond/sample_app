@@ -1,8 +1,7 @@
 class RelationshipsController < ApplicationController
-  before_filter :authenticate 
+  before_filter :authenticate
   
   def create
-    raise params.inspect
     @user = User.find(params[:relationship][:followed_id])
     current_user.follow!(@user)
     respond_to do |format|
@@ -19,5 +18,4 @@ class RelationshipsController < ApplicationController
       format.js
     end
   end
-  
 end
